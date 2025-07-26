@@ -1,241 +1,1462 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj Patel | Razz Developer | Web Developer from Chhatarpur</title>
+    <meta name="description" content="Official portfolio of Raj Patel aka Razz Raj Patel, a passionate web developer and designer from Chhatarpur. Explore projects, skills, and connect now.">
+    <meta name="keywords" content="Raj Patel, Razz Raj, Razz Raj Patel, Raj Patel Chhatarpur, Web Developer Chhatarpur, Portfolio of Raj Patel, Razz Developer">
+    <meta name="author" content="Raj Patel">
+    <link rel="canonical" href="https://sooriyansh.github.io/razz/" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #667eea;
+            --accent: #ff6b6b;
+            --light-bg: #f5f6fa;
+            --radius: 15px;
+        }
 
-  <!-- Primary Meta Tags -->
-<title>Raj Patel | Razz Raj Patel | Web Developer from Chhatarpur</title>
-<meta name="title" content="Raj Patel | Razz Raj Patel | Web Developer from Chhatarpur">
-<meta name="description" content="Official portfolio of Raj Patel aka Razz Raj Patel, a passionate web developer and designer from Chhatarpur. Explore projects, skills, and connect now.">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- Keywords -->
-<meta name="keywords" content="Raj Patel, Razz Raj, Razz Raj Patel, Raj Patel Chhatarpur, Web Developer Chhatarpur, Portfolio of Raj Patel, Razz Developer">
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
 
-<!-- Author -->
-<meta name="author" content="Raj Patel">
+        .main-container {
+            width: 100%;
+            min-height: 100vh;
+        }
 
-<!-- Canonical URL -->
-<link rel="canonical" href="https://sooriyansh.github.io/razz/" />
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+        }
 
-<!-- Open Graph / Facebook -->
-<!-- <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.yoursite.com/">
-<meta property="og:title" content="Raj Patel | Razz Raj Patel | Web Developer from Chhatarpur">
-<meta property="og:description" content="Explore the work and story of Raj Patel - also known as Razz Raj Patel - a creative developer from Chhatarpur.">
-<meta property="og:image" content="https://www.yoursite.com/og-image.jpg"> -->
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
 
-<!-- Twitter -->
-<!-- <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://www.yoursite.com/">
-<meta property="twitter:title" content="Raj Patel | Razz Raj Patel | Web Developer from Chhatarpur">
-<meta property="twitter:description" content="Welcome to the official portfolio of Raj Patel - Razz Raj from Chhatarpur. Check out his projects, skills, and background.">
-<meta property="twitter:image" content="https://www.yoursite.com/twitter-image.jpg"> -->
+        }
 
-  <link rel="stylesheet" href="style.css">
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<script src="script.js"></script>
+        .nav-links {
+            display: flex;
 
+            gap: 2rem;
+        }
+
+        .nav-links a {
+        
+
+            color:black;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .menu-icon, .close-icon {
+
+            display: none;
+            color: black;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+
+        background: rgba(0, 0, 0, 0.85); /* Transparent dark overlay */
+        padding: 3rem 2rem;
+        transition: right 0.3s ease;
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .menu-icon {
+        display: block;
+        color: black;
+    }
+
+    .close-icon {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 2rem;
+        color: black;
+        cursor: pointer;
+    }
+
+    .nav-links li {
+        list-style: none;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+    }
+}
+
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateX(-200px);
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 2.5rem;
+            opacity: 0;
+            transform: translateX(200px);
+            margin-bottom: 2rem;
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Star effect */
+        .star {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ffeb3b;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #ffeb3b;
+            pointer-events: none;
+        }
+
+        /* Floating particles */
+        .floating-particle {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .particle-star {
+            width: 8px;
+            height: 8px;
+            background: #ffeb3b;
+            box-shadow: 0 0 15px #ffeb3b, 0 0 25px #ffeb3b;
+        }
+
+        .particle-circle {
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .particle-diamond {
+            width: 10px;
+            height: 10px;
+            background: #4ecdc4;
+            transform: rotate(45deg);
+            box-shadow: 0 0 15px #4ecdc4;
+        }
+
+        .particle-triangle {
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 12px solid #45b7d1;
+            border-radius: 0;
+            filter: drop-shadow(0 0 10px #45b7d1);
+        }
+
+        .particle-hexagon {
+            width: 14px;
+            height: 8px;
+            background: #96ceb4;
+            position: relative;
+            box-shadow: 0 0 15px #96ceb4;
+        }
+
+        .particle-hexagon:before,
+        .particle-hexagon:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+        }
+
+        .particle-hexagon:before {
+            bottom: 100%;
+            border-bottom: 4px solid #96ceb4;
+        }
+
+        .particle-hexagon:after {
+            top: 100%;
+            border-top: 4px solid #96ceb4;
+        }
+
+        .particle-plus {
+            width: 12px;
+            height: 12px;
+            background: #f7dc6f;
+            position: relative;
+            box-shadow: 0 0 15px #f7dc6f;
+        }
+
+        .particle-plus:before,
+        .particle-plus:after {
+            content: '';
+            position: absolute;
+            background: #f7dc6f;
+        }
+
+        .particle-plus:before {
+            width: 4px;
+            height: 12px;
+            left: 4px;
+            top: 0;
+        }
+
+        .particle-plus:after {
+            width: 12px;
+            height: 4px;
+            left: 0;
+            top: 4px;
+        }
+
+        /* Floating geometric shapes */
+        .floating-shape {
+            position: absolute;
+            opacity: 0.7;
+        }
+
+        .shape-cube {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transform-style: preserve-3d;
+            box-shadow: 0 0 20px rgba(118, 75, 162, 0.3);
+        }
+
+        .shape-circle-outline {
+            width: 25px;
+            height: 25px;
+            border: 3px solid #ff9ff3;
+            border-radius: 50%;
+            background: transparent;
+            box-shadow: 0 0 15px rgba(255, 159, 243, 0.4);
+        }
+
+        .shape-wave {
+            width: 30px;
+            height: 15px;
+            background: radial-gradient(circle, #54a0ff, #2e86de);
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shape-wave:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -100%;
+            width: 200%;
+            height: 2px;
+            background: #74b9ff;
+            animation: wave 2s infinite linear;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+        }
+        .about-photo img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.about-photo img:hover {
+    transform: scale(1.05);
+}
+
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 400px;
+        }
+
+        .about-photo-container {
+            flex: 0 0 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ffeb3b, #ffc107);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #333;
+            font-weight: bold;
+            box-shadow: 0 15px 35px rgba(255, 235, 59, 0.3);
+            opacity: 0;
+            transform: scale(0.5) rotate(180deg);
+            border: 5px solid rgba(255, 255, 255, 0.2);
+        }
+       
+     
+
+        .about-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateX(-100px);
+            color: white;
+            font-weight: bold;
+        }
+
+        .about-description {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateX(100px);
+            color: white;
+        }
+
+        /* Achievements Section */
+        .achievements-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .achievements-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: scale(0.5);
+            color: white;
+            font-weight: bold;
+        }
+
+        .achievements-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .achievement-item {
+
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .achievement-image-placeholder {
+
+            width: 100%;
+            height: 200px;
+            background: #eee;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .achievement-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffeb3b;
+            font-weight: bold;
+        }
+
+        .achievement-description {
+            color: white;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .skills-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: scale(0.5);
+            color: white;
+            font-weight: bold;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px) rotateX(45deg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-item-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffeb3b;
+            font-weight: bold;
+        }
+
+        .skill-item-description {
+            color: white;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        /* Pricing Section */
+        .pricing-plans, .hosting-plans, .add-ons, .maintenance-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .pricing-plans {
+            position: relative;
+        }
+
+        .quick-quote-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .quick-quote-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.7);
+        }
+
+        .modal-content h2 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .modal-content input, .modal-content textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .modal-content textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .modal-content button[type="submit"] {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .modal-content button[type="submit"]:hover {
+            background: var(--accent);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+        .achievement-image-placeholder img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+
+        .plan-card, .add-on-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            opacity: 0;
+        }
+
+        .plan-card h2, .add-on-card h2, .plan-card h3, .add-on-card h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-card ul {
+            text-align: left;
+            margin: 1rem 0;
+        }
+
+        .plan-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .get-started, .add-to-plan {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .get-started:hover, .add-to-plan:hover {
+            background: var(--accent);
+        }
+
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            font-size: 0.75rem;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            display: none;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .contact-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: rotateY(90deg);
+            color: white;
+            font-weight: bold;
+        }
+
+        .contact-details {
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            color: white;
+        }
+
+        .contact-text {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator-container {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+        }
+
+        .scroll-progress-bar {
+            width: 100%;
+            background: linear-gradient(to bottom, #ff6b6b, #ee5a52);
+            border-radius: 2px;
+            height: 0%;
+            transition: height 0.3s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100%;
+                background: var(--light-bg);
+                padding: 2rem;
+                box-shadow: -4px 0 10px rgba(0,0,0,0.1);
+                transition: 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .close-icon {
+                display: block;
+                text-align: right;
+                margin-bottom: 2rem;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.8rem;
+            }
+
+            .hero-button {
+                font-size: 1.3rem;
+                padding: 18px 35px;
+            }
+
+            .about-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .about-text {
+                min-width: auto;
+            }
+
+            .about-photo-container {
+                flex: none;
+            }
+
+            .about-photo {
+                width: 250px;
+                height: 250px;
+                font-size: 3rem;
+            }
+
+            .about-title, .skills-title, .achievements-title, .contact-title {
+                font-size: 2rem;
+            }
+
+            .achievements-container {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .hero-button {
+                font-size: 1.2rem;
+                padding: 15px 30px;
+            }
+
+            .quick-quote-button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <header>
-    <div class="logo">Razz Portfolio</div>
-    <div class="menu-icon">☰</div>
     <nav class="navbar">
-      <div class="close-icon">✕</div>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+        <div class="navbar-container">
+            <div class="logo">Razz Developer</div>
+            <div class="menu-icon"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li class="close-icon"><i class="fas fa-times"></i></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-  </header>
-  <main>
-    <section class="hero">
-      <h1>Shape the Next <br>Generation of Websites with your Vision</h1>
-      <p>Get professional web development services on your own schedule. Turning your ideas into reality.</p>
-      <div class="buttons">
-        <button class="primary-btn">View Projects <span>→</span></button>
-        <button class="secondary-btn">Contact Me</button>
-      </div>
-    </section>
-    <section class="services">
-      <div class="service-card">
-        <div class="placeholder">WD</div>
-      </div>
-      <h2>Professional Web Development</h2>
-      <p>Modern, responsive websites built with the latest technologies</p>
-    </section>
-  </main>
 
-  <header>
-    <h1>Pricing Plans</h1>
-    <p>Choose the perfect plan for your project needs</p>
-</header>
-
-<section class="pricing-plans">
-    <div class="plan-card">
-        <h2>Basic Website</h2>
-        <h3>₹15,000</h3>
-        <ul>
-            <li><i class="fas fa-check-circle"></i> 5 Pages</li>
-            <li><i class="fas fa-check-circle"></i> Responsive Design</li>
-            <li><i class="fas fa-check-circle"></i> Contact Form</li>
-            <li><i class="fas fa-check-circle"></i> Free 1-Year Maintenance</li>
-            <li><i class="fas fa-check-circle"></i> Free Hosting & Domain (1st Year)</li>
-        </ul>
-        <button class="get-started">Get Started</button>
+    <div class="scroll-indicator-container">
+        <div class="scroll-progress-bar"></div>
     </div>
 
-    <div class="plan-card popular">
-        <span class="badge">Best Value</span>
-        <h2>Business Website</h2>
-        <h3>₹25,000</h3>
-        <ul>
-            <li><i class="fas fa-check-circle"></i> 10 Pages</li>
-            <li><i class="fas fa-check-circle"></i> Responsive Design</li>
-            <li><i class="fas fa-check-circle"></i> Contact Form</li>
-            <li><i class="fas fa-check-circle"></i> CMS Integration</li>
-            <li><i class="fas fa-check-circle"></i> SEO Optimization</li>
-            <li><i class="fas fa-check-circle"></i> Free 1-Year Maintenance</li>
-            <li><i class="fas fa-check-circle"></i> Free Hosting & Domain (1st Year)</li>
-        </ul>
-        <button class="get-started">Get Started</button>
-    </div>
+    <div class="main-container">
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to Website of Razz</h1>
+                <p class="hero-subtitle">Full Stack Developer & Creative Designer</p>
+                <button class="hero-button">Explore My Work</button>
+            </div>
+        </section>
 
-    <div class="plan-card">
-        <span class="badge">Most Comprehensive</span>
-        <h2>E-commerce Website</h2>
-        <h3>₹45,000</h3>
-        <ul>
-            <li><i class="fas fa-check-circle"></i> 20+ Pages</li>
-            <li><i class="fas fa-check-circle"></i> Responsive Design</li>
-            <li><i class="fas fa-check-circle"></i> Product Management</li>
-            <li><i class="fas fa-check-circle"></i> Payment Gateway</li>
-            <li><i class="fas fa-check-circle"></i> Admin Dashboard</li>
-            <li><i class="fas fa-check-circle"></i> Free 1-Year Maintenance</li>
-            <li><i class="fas fa-check-circle"></i> Free Hosting & Domain (1st Year)</li>
-        </ul>
-        <button class="get-started">Get Started</button>
-    </div>
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="about-title">About Razz Developer</h2>
+                    <p class="about-description">I'm a passionate developer who creates amazing digital experiences. With expertise in modern web technologies, I bring ideas to life through clean code and innovative design. Let's build something extraordinary together!</p>
+                </div>
+                <div class="about-photo-container">
+                    <div class="about-photo"><img src="raz.jpg"></div>
+                </div>
+            </div>
+        </section>
 
-    <div class="plan-card full-package">
-        <span class="badge">All-Inclusive</span>
-        <h2>Full Package</h2>
-        <h3>₹55,000</h3>
-        <ul>
-            <li><i class="fas fa-check-circle"></i> Everything in E-commerce Plan</li>
-            <li><i class="fas fa-check-circle"></i> MongoDB Integration</li>
-            <li><i class="fas fa-check-circle"></i> Free 1-Year Maintenance</li>
-            <li><i class="fas fa-check-circle"></i> Free Hosting & Domain (1st Year)</li>
-            <li><i class="fas fa-check-circle"></i> Post 1st Year: ₹22,800/year (Hosting + Maintenance + Domain)</li>
-        </ul>
-        <button class="get-started">Get Started</button>
-    </div>
-</section>
+        <!-- Achievements Section -->
+        <section class="achievements-section" id="achievements">
+            <h2 class="achievements-title">My Achievements</h2>
+            <div class="achievements-container">
+                <div class="achievement-item">
+                    <div class="achievement-image-placeholder"><img src="java.jpg"></div>
+                    <h3 class="achievement-title">DSA Certificate</h3>
+                    <p class="achievement-description">DSA with Java<br>I have successfully completed a Data Structures and Algorithms course in Java.</p>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-image-placeholder"><img src="com.jpg"></div>
+                    <h3 class="achievement-title">Hardware and OS Certificate</h3>
+                    <p class="achievement-description">Computer Hardware and Operating Systems<br>I have completed certification in Computer Hardware and Operating Systems.</p>
+                </div>
+            </div>
+        </section>
 
-<section class="hosting-domain">
-    <h2>Hosting & Domain Pricing (Post 1st Year)</h2>
-    <p>Keep your website live with our affordable plans</p>
-    <div class="hosting-plans">
-        <div class="plan-card">
-            <h3>Basic Hosting</h3>
-            <p>₹3,000/year</p>
-            <p>500 MB Storage, 10 GB Bandwidth</p>
-            <button class="add-to-plan">Add to Plan</button>
+        <!-- Skills Section -->
+        <section class="skills-section" id="skills">
+            <h2 class="skills-title">My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <h3 class="skill-item-title">Frontend Development</h3>
+                    <p class="skill-item-description">React, Vue.js, HTML5, CSS3, JavaScript, GSAP</p>
+                </div>
+                <div class="skill-item">
+                    <h3 class="skill-item-title">Backend Development</h3>
+                    <p class="skill-item-description">Node.js, Python, PHP, MongoDB, MySQL</p>
+                </div>
+                <div class="skill-item">
+                    <h3 class="skill-item-title">UI/UX Design</h3>
+                    <p class="skill-item-description">Figma, Adobe XD, Photoshop, Creative Design</p>
+                </div>
+                <div class="skill-item">
+                    <h3 class="skill-item-title">Mobile Development</h3>
+                    <p class="skill-item-description">React Native, Flutter, Progressive Web Apps</p>
+                </div>
+     
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-plans" id="pricing">
+            <button class="quick-quote-button">Get Quick Quote</button>
+            <div class="plan-card" data-direction="left">
+                <h2>Basic Website</h2>
+                <h3>₹15,000</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> 5 Pages</li>
+                    <li><i class="fas fa-check-circle"></i> Responsive Design</li>
+                    <li><i class="fas fa-check-circle"></i> Contact Form</li>
+                    <li><i class="fas fa-check-circle"></i> Free 1-Year Maintenance</li>
+                    <li><i class="fas fa-check-circle"></i> Free Hosting & Domain (1st Year)</li>
+                </ul>
+                <button class="get-started">Get Started</button>
+            </div>
+            <div class="plan-card popular" data-direction="top">
+                <span class="badge">Best Value</span>
+                <h2>Business Website</h2>
+                <h3>₹25,000</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> 10 Pages</li>
+                    <li><i class="fas fa-check-circle"></i> Responsive Design</li>
+                    <li><i class="fas fa-check-circle"></i> Contact Form</li>
+                    <li><i class="fas fa-check-circle"></i> CMS Integration</li>
+                    <li><i class="fas fa-check-circle"></i> SEO Optimization</li>
+                    <li><i class="fas fa-check-circle"></i> Free 1-Year Maintenance</li>
+                    <li><i class="fas fa-check-circle"></i> Free Hosting & Domain (1st Year)</li>
+                </ul>
+                <button class="get-started">Get Started</button>
+            </div>
+            <div class="plan-card" data-direction="right">
+                <span class="badge">Most Comprehensive</span>
+                <h2>E-commerce Website</h2>
+                <h3>₹45,000</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> 20+ Pages</li>
+                    <li><i class="fas fa-check-circle"></i> Responsive Design</li>
+                    <li><i class="fas fa-check-circle"></i> Product Management</li>
+                    <li><i class="fas fa-check-circle"></i> Payment Gateway</li>
+                    <li><i class="fas fa-check-circle"></i> Admin Dashboard</li>
+                    <li><i class="fas fa-check-circle"></i> Free 1-Year Maintenance</li>
+                    <li><i class="fas fa-check-circle"></i> Free Hosting & Domain (1st Year)</li>
+                </ul>
+                <button class="get-started">Get Started</button>
+            </div>
+            <div class="plan-card full-package" data-direction="top">
+                <span class="badge">All-Inclusive</span>
+                <h2>Full Package</h2>
+                <h3>₹55,000</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Everything in E-commerce Plan</li>
+                    <li><i class="fas fa-check-circle"></i> MongoDB Integration</li>
+                    <li><i class="fas fa-check-circle"></i> Free 1-Year Maintenance</li>
+                    <li><i class="fas fa-check-circle"></i> Free Hosting & Domain (1st Year)</li>
+                    <li><i class="fas fa-check-circle"></i> Post 1st Year: ₹22,800/year</li>
+                </ul>
+                <button class="get-started">Get Started</button>
+            </div>
+        </section>
+
+        <!-- Hosting & Domain Section -->
+        <section class="hosting-plans">
+            <h2>Hosting & Domain Pricing (Post 1st Year)</h2>
+            <p>Keep your website live with our affordable plans</p>
+            <div class="plan-card" data-direction="left">
+                <h3>Basic Hosting</h3>
+                <p>₹3,000/year</p>
+                <p>500 MB Storage, 10 GB Bandwidth</p>
+                <button class="add-to-plan">Add to Plan</button>
+            </div>
+            <div class="plan-card" data-direction="top">
+                <h3>Business Hosting</h3>
+                <p>₹6,000/year</p>
+                <p>2 GB Storage, 50 GB Bandwidth</p>
+                <button class="add-to-plan">Add to Plan</button>
+            </div>
+            <div class="plan-card" data-direction="right">
+                <h3>E-commerce Hosting</h3>
+                <p>₹10,000/year</p>
+                <p>5 GB Storage, Unlimited Bandwidth</p>
+                <button class="add-to-plan">Add to Plan</button>
+            </div>
+            <div class="domain-pricing">
+                <h3>Domain Pricing</h3>
+                <p>.com/.in: ₹800/year | .org: ₹1,000/year | .co: ₹2,000/year</p>
+            </div>
+        </section>
+
+        <!-- Maintenance Plans -->
+        <section class="maintenance-plans">
+            <h2>Maintenance Plans (Post 1st Year)</h2>
+            <p>Let us maintain your website for you</p>
+            <div class="plan-card" data-direction="left">
+                <h3>Basic Maintenance</h3>
+                <p>₹5,000/year</p>
+                <p>Bug Fixes, Updates</p>
+                <button class="add-to-plan">Add to Plan</button>
+            </div>
+            <div class="plan-card" data-direction="top">
+                <h3>Business Maintenance</h3>
+                <p>₹8,000/year</p>
+                <p>Bug Fixes, Updates, Monthly Backups</p>
+                <button class="add-to-plan">Add to Plan</button>
+            </div>
+            <div class="plan-card" data-direction="right">
+                <h3>E-commerce Maintenance</h3>
+                <p>₹12,000/year</p>
+                <p>Bug Fixes, Updates, Backups, Security Monitoring</p>
+                <button class="add-to-plan">Add to Plan</button>
+            </div>
+        </section>
+
+        <!-- Add-Ons -->
+        <section class="add-ons">
+            <h2>Add-Ons</h2>
+            <p>Enhance your website with additional features</p>
+            <div class="add-on-card" data-direction="left">
+                <h3>Basic Database (MySQL)</h3>
+                <p>₹5,000 (Setup + 1 GB Storage)</p>
+                <button class="add-to-plan">Add to Plan</button>
+            </div>
+            <div class="add-on-card" data-direction="top">
+                <h3>Advanced Database (PostgreSQL/MongoDB)</h3>
+                <p>₹10,000 (Setup + 5 GB Storage)</p>
+                <button class="add-to-plan">Add to Plan</button>
+            </div>
+            <div class="add-on-card" data-direction="right">
+                <h3>Custom Email Setup</h3>
+                <p>₹2,000</p>
+                <button class="add-to-plan">Add to Plan</button>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq" id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3 class="faq-question">What happens after the 1st year of free maintenance?</h3>
+                <p class="faq-answer">You can opt for one of our maintenance plans starting at ₹5,000/year to keep your website running smoothly.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Can I upgrade my plan later?</h3>
+                <p class="faq-answer">Yes, you can upgrade your plan at any time by contacting our support team.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <h2 class="contact-title">Let's Connect</h2>
+            <div class="contact-details">
+                <p class="contact-text">Ready to start your next project?</p>
+                <p class="contact-text">Email: rrazzpatel143@gmail.com | Phone: +91 9691368925</p>
+            </div>
+        </section>
+
+        <!-- Quick Quote Modal -->
+        <div class="modal" id="quick-quote-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Get a Quick Quote</h2>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Describe your project" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </div>
-        <div class="plan-card">
-            <h3>Business Hosting</h3>
-            <p>₹6,000/year</p>
-            <p>2 GB Storage, 50 GB Bandwidth</p>
-            <button class="add-to-plan">Add to Plan</button>
-        </div>
-        <div class="plan-card">
-            <h3>E-commerce Hosting</h3>
-            <p>₹10,000/year</p>
-            <p>5 GB Storage, Unlimited Bandwidth</p>
-            <button class="add-to-plan">Add to Plan</button>
-        </div>
     </div>
-    <div class="domain-pricing">
-        <h3>Domain Pricing</h3>
-        <p>.com/.in: ₹800/year | .org: ₹1,000/year | .co: ₹2,000/year</p>
-    </div>
-</section>
 
-<section class="maintenance-plans">
-    <h2>Maintenance Plans (Post 1st Year)</h2>
-    <p>Let us maintain your website for you</p>
-    <div class="plan-card">
-        <h3>Basic Maintenance</h3>
-        <p>₹5,000/year</p>
-        <p>Bug Fixes, Updates</p>
-        <button class="add-to-plan">Add to Plan</button>
-    </div>
-    <div class="plan-card">
-        <h3>Business Maintenance</h3>
-        <p>₹8,000/year</p>
-        <p>Bug Fixes, Updates, Monthly Backups</p>
-        <button class="add-to-plan">Add to Plan</button>
-    </div>
-    <div class="plan-card">
-        <h3>E-commerce Maintenance</h3>
-        <p>₹12,000/year</p>
-        <p>Bug Fixes, Updates, Backups, Security Monitoring</p>
-        <button class="add-to-plan">Add to Plan</button>
-    </div>
-</section>
+    <script>
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
 
-<section class="add-ons">
-    <h2>Add-Ons</h2>
-    <p>Enhance your website with additional features</p>
-    <div class="add-on-card">
-        <h3>Basic Database (MySQL)</h3>
-        <p>₹5,000 (Setup + 1 GB Storage)</p>
-        <button class="add-to-plan">Add to Plan</button>
-    </div>
-    <div class="add-on-card">
-        <h3>Advanced Database (PostgreSQL/MongoDB)</h3>
-        <p>₹10,000 (Setup + 5 GB Storage)</p>
-        <button class="add-to-plan">Add to Plan</button>
-    </div>
-    <div class="add-on-card">
-        <h3>Custom Email Setup</h3>
-        <p>₹2,000</p>
-        <button class="add-to-plan">Add to Plan</button>
-    </div>
-</section>
+        // Navbar toggle
+    const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
+    const closeIcon = document.querySelector('.close-icon');
 
-<section class="testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonial">
-        <p>"Amazing service! My website was up in a week!"</p>
-        <p>- John D.</p>
-    </div>
-    <div class="testimonial">
-        <p>"The team was super helpful and professional."</p>
-        <p>- Sarah K.</p>
-    </div>
-</section>
+    menuIcon.addEventListener('click', () => {
+        navLinks.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
 
-<section class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-        <h3 class="faq-question">What happens after the 1st year of free maintenance?</h3>
-        <p class="faq-answer">You can opt for one of our maintenance plans starting at ₹5,000/year to keep your website running smoothly.</p>
-    </div>
-    <div class="faq-item">
-        <h3 class="faq-question">Can I upgrade my plan later?</h3>
-        <p class="faq-answer">Yes, you can upgrade your plan at any time by contacting our support team.</p>
-    </div>
-</section>
+    closeIcon.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    });
 
 
+        // Star effect on mouse move and click
+        function createStar(x, y) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${x}px`;
+            star.style.top = `${y}px`;
+            document.querySelector('.hero-section').appendChild(star);
 
+            gsap.to(star, {
+                scale: 1.5,
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.out",
+                onComplete: () => star.remove()
+            });
+        }
+
+        document.querySelector('.hero-section').addEventListener('mousemove', (e) => {
+            if (Math.random() < 0.3) {
+                createStar(e.clientX, e.clientY);
+            }
+        });
+
+        document.querySelector('.hero-section').addEventListener('click', (e) => {
+            const touch = e.touches ? e.touches[0] : e;
+            for (let i = 0; i < 3; i++) {
+                createStar(touch.clientX + (Math.random() * 20 - 10), touch.clientY + (Math.random() * 20 - 10));
+            }
+        });
+
+        // Create floating particles and shapes
+        function createParticles() {
+            const hero = document.querySelector('.hero-section');
+            const particleTypes = ['particle-star', 'particle-circle', 'particle-diamond', 'particle-triangle', 'particle-hexagon', 'particle-plus'];
+            const shapeTypes = ['shape-cube', 'shape-circle-outline', 'shape-wave'];
+
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                const randomType = particleTypes[Math.floor(Math.random() * particleTypes.length)];
+                particle.className = `floating-particle ${randomType}`;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                hero.appendChild(particle);
+
+                gsap.to(particle, {
+                    y: -Math.random() * 200 - 100,
+                    x: Math.random() * 200 - 100,
+                    rotation: Math.random() * 360,
+                    duration: Math.random() * 4 + 3,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    delay: Math.random() * 3
+                });
+            }
+
+            for (let i = 0; i < 15; i++) {
+                const shape = document.createElement('div');
+                const randomShape = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
+                shape.className = `floating-shape ${randomShape}`;
+                shape.style.left = Math.random() * 100 + '%';
+                shape.style.top = Math.random() * 100 + '%';
+                hero.appendChild(shape);
+
+                gsap.to(shape, {
+                    x: Math.random() * 300 - 150,
+                    y: Math.random() * 300 - 150,
+                    rotation: Math.random() * 720,
+                    scale: Math.random() * 0.5 + 0.8,
+                    duration: Math.random() * 6 + 4,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "power2.inOut",
+                    delay: Math.random() * 4
+                });
+            }
+
+            gsap.to(".particle-star", {
+                scale: 1.5,
+                duration: 1,
+                repeat: -1,
+                yoyo: true,
+                ease: "power2.inOut",
+                stagger: 0.2
+            });
+
+            gsap.to(".particle-circle", {
+                boxShadow: "0 0 30px rgba(255, 107, 107, 0.8), 0 0 40px rgba(255, 107, 107, 0.6)",
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut",
+                stagger: 0.3
+            });
+        }
+
+        // Hero animations
+        gsap.timeline({ delay: 2 })
+            .to(".hero-title", { opacity: 1, x: 0, duration: 1.5, ease: "power3.out" })
+            .to(".hero-subtitle", { opacity: 1, x: 0, duration: 1.2, ease: "power3.out" }, "-=0.8")
+            .to(".hero-button", { opacity: 1, y: 0, duration: 1, ease: "back.out(1.7)" }, "-=0.5");
+
+        // About section animations
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".about-section",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+            }
+        })
+        .to(".about-title", { opacity: 1, x: 0, duration: 1, ease: "power3.out" })
+        .to(".about-description", { opacity: 1, x: 0, duration: 1, ease: "power3.out" }, "-=0.5")
+        .to(".about-photo", { opacity: 1, scale: 1, rotation: 0, duration: 1.2, ease: "elastic.out(1, 0.6)" }, "-=0.8");
+
+        // Achievements section animations
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".achievements-section",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+            }
+        })
+        .to(".achievements-title", { opacity: 1, scale: 1, duration: 1, ease: "elastic.out(1, 0.5)" })
+        .to(".achievement-item", { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.3");
+
+        // Skills section animations
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".skills-section",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+            }
+        })
+        .to(".skills-title", { opacity: 1, scale: 1, duration: 1, ease: "elastic.out(1, 0.5)" })
+        .to(".skill-item", { opacity: 1, y: 0, rotationX: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.3");
+
+        // Pricing section animations
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".pricing-plans",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+            }
+        })
+        .to(".plan-card[data-direction='left']", { opacity: 1, x: 0, rotationY: 0, duration: 0.8, ease: "power3.out" }, 0)
+        .to(".plan-card[data-direction='right']", { opacity: 1, x: 0, rotationY: 0, duration: 0.8, ease: "power3.out" }, 0.2)
+        .to(".plan-card[data-direction='top']", { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "elastic.out(1, 0.7)" }, 0.1);
+
+        // Hosting section animations
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".hosting-plans",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+            }
+        })
+        .to(".hosting-plans .plan-card[data-direction='left']", { opacity: 1, x: 0, rotationX: 0, duration: 0.8, ease: "power3.out" }, 0)
+        .to(".hosting-plans .plan-card[data-direction='top']", { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "elastic.out(1, 0.7)" }, 0.1)
+        .to(".hosting-plans .plan-card[data-direction='right']", { opacity: 1, x: 0, rotationX: 0, duration: 0.8, ease: "power3.out" }, 0.2);
+
+        // Maintenance section animations
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".maintenance-plans",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+            }
+        })
+        .to(".maintenance-plans .plan-card[data-direction='left']", { opacity: 1, x: 0, rotationY: 0, duration: 0.8, ease: "power3.out" }, 0)
+        .to(".maintenance-plans .plan-card[data-direction='top']", { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "elastic.out(1, 0.7)" }, 0.1)
+        .to(".maintenance-plans .plan-card[data-direction='right']", { opacity: 1, x: 0, rotationY: 0, duration: 0.8, ease: "power3.out" }, 0.2);
+
+        // Add-ons section animations
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".add-ons",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+            }
+        })
+        .to(".add-on-card[data-direction='left']", { opacity: 1, x: 0, rotationX: 0, duration: 0.8, ease: "power3.out" }, 0)
+        .to(".add-on-card[data-direction='top']", { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "elastic.out(1, 0.7)" }, 0.1)
+        .to(".add-on-card[data-direction='right']", { opacity: 1, x: 0, rotationX: 0, duration: 0.8, ease: "power3.out" }, 0.2);
+
+        // FAQ section animations
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".faq",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+            }
+        })
+        .to(".faq h2", { opacity: 1, y: 0, duration: 1, ease: "power3.out" })
+        .to(".faq-item", { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.5");
+
+        // Contact section animations
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".contact-section",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+            }
+        })
+        .to(".contact-title", { opacity: 1, rotationY: 0, duration: 1, ease: "power3.out" })
+        .to(".contact-details", { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.5");
+
+        // Scroll progress indicator
+        gsap.to(".scroll-progress-bar", {
+            height: "100%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1
+            }
+        });
+
+        // Parallax effects
+        gsap.to(".hero-section", {
+            yPercent: -50,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".hero-section",
+                start: "top top",
+                end: "bottom top",
+                scrub: 1
+            }
+        });
+
+        // Quick Quote Modal
+        const modal = document.getElementById('quick-quote-modal');
+        const openModalBtn = document.querySelector('.quick-quote-button');
+        const closeModalBtn = document.querySelector('.close-modal');
+
+        openModalBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            gsap.to('.modal-content', {
+                opacity: 1,
+                scale: 1,
+                duration: 0.5,
+                ease: "back.out(1.7)"
+            });
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            gsap.to('.modal-content', {
+                opacity: 0,
+                scale: 0.7,
+                duration: 0.3,
+                ease: "power2.in",
+                onComplete: () => modal.style.display = 'none'
+            });
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                gsap.to('.modal-content', {
+                    opacity: 0,
+                    scale: 0.7,
+                    duration: 0.3,
+                    ease: "power2.in",
+                    onComplete: () => modal.style.display = 'none'
+                });
+            }
+        });
+
+        // Prevent form submission (for demo purposes)
+        document.querySelector('.modal-content form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Quote request submitted! (Demo mode)');
+            gsap.to('.modal-content', {
+                opacity: 0,
+                scale: 0.7,
+                duration: 0.3,
+                ease: "power2.in",
+                onComplete: () => modal.style.display = 'none'
+            });
+        });
+
+        // Initialize particles
+        createParticles();
+
+        // Hero button click animation
+        document.querySelector('.hero-button').addEventListener('click', function() {
+            gsap.to(window, { duration: 1.5, scrollTo: "#about", ease: "power3.inOut" });
+        });
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Smooth scroll
+        gsap.to("body", { scrollBehavior: "smooth" });
+
+        // Initialize card animations with varied directions
+        document.querySelectorAll('.plan-card, .add-on-card').forEach((card, index) => {
+            const direction = card.getAttribute('data-direction');
+            let animationProps = {};
+            
+            if (direction === 'left') {
+                animationProps = { x: -100, rotationY: 45 };
+            } else if (direction === 'right') {
+                animationProps = { x: 100, rotationY: -45 };
+            } else if (direction === 'top') {
+                animationProps = { y: -100, scale: 0.8 };
+            }
+
+            gsap.set(card, animationProps);
+        });
+    </script>
 </body>
-
 </html>
